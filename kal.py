@@ -11,7 +11,7 @@ def kalkulator():
     if tombol == "C":
         ekspresi = ""
     elif tombol == "DEL":
-        ekspresi = ekspresi[:-1]  # hapus satu karakter terakhir
+        ekspresi = ekspresi[:-1]
     elif tombol == "=":
         try:
             hasil = str(eval(ekspresi))
