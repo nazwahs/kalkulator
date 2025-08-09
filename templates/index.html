@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator Python</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #e6f0ea;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .kalkulator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .layar {
+      background: #f0f8f4;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 24px;
+      min-height: 60px;
+      margin-bottom: 20px;
+      word-wrap: break-word;
+    }
+
+    .hasil {
+      font-weight: bold;
+      color: #007a5e;
+      font-size: 28px;
+    }
+
+    .tombol {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #d0f0da;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #b6e2c6;
+    }
+
+    .operator {
+      background: #ffd6a5;
+    }
+
+    .equal {
+      background: #a0e7e5;
+    }
+
+    .clear {
+      background: #ffaaaa;
+      grid-column: span 2;
+    }
+
+    .del {
+      background: #fff3b0;
+      grid-column: span 2;
+    }
+
+    @media (max-width: 400px) {
+      .kalkulator {
+        padding: 15px;
+      }
+
+      .layar {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .hasil {
+        font-size: 22px;
+      }
+
+      button {
+        padding: 15px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form method="POST">
+    <input type="hidden" name="ekspresi" value="{{ ekspresi }}">
+    <div class="kalkulator">
+      <div class="layar">
+        {{ ekspresi }}
+        <div class="hasil">{{ hasil }}</div>
+      </div>
+      <div class="tombol">
+        <!-- Baris 1 -->
+        <button type="submit" name="angka" value="7">7</button>
+        <button type="submit" name="angka" value="8">8</button>
+        <button type="submit" name="angka" value="9">9</button>
+        <button type="submit" name="angka" value="/" class="operator">/</button>
+
+        <!-- Baris 2 -->
+        <button type="submit" name="angka" value="4">4</button>
+        <button type="submit" name="angka" value="5">5</button>
+        <button type="submit" name="angka" value="6">6</button>
+        <button type="submit" name="angka" value="*" class="operator">*</button>
+
+        <!-- Baris 3 -->
+        <button type="submit" name="angka" value="1">1</button>
+        <button type="submit" name="angka" value="2">2</button>
+        <button type="submit" name="angka" value="3">3</button>
+        <button type="submit" name="angka" value="-" class="operator">−</button>
+
+        <!-- Baris 4 -->
+        <button type="submit" name="angka" value="0">0</button>
+        <button type="submit" name="angka" value="." class="operator">.</button>
+        <button type="submit" name="angka" value="+" class="operator">+</button>
+        <button type="submit" name="angka" value="=" class="equal">=</button>
+
+        <!-- Baris 5: Clear dan DEL -->
+        <button type="submit" name="angka" value="C" class="clear">C</button>
+        <button type="submit" name="angka" value="DEL" class="del">⌫</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
